@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Time
@@ -17,7 +18,10 @@ namespace Time
 
         private IEnumerable<ITimeScaled> GetTimeScaledChild()
         {
-            return transform.GetComponentsInChildren<ITimeScaled>();
+            var components = GetComponents<ITimeScaled>();
+
+            return GetComponents<ITimeScaled>()
+                .Where(timeScaled => ReferenceEquals(timeScaled, this) == false);
         }
     }
 }

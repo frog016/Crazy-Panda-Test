@@ -1,6 +1,7 @@
 ﻿using Shooting;
 using Structure.Factory;
 using Structure.Pool;
+using Time;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -11,16 +12,19 @@ namespace Initialize
         [SerializeField] private AutomaticShooter _leftCannon;
         [SerializeField] private AutomaticShooter _rightCannon;
 
-        [SerializeField] private float _cooldownTime;
+        [SerializeField, Min(0)] private float _cooldownTime;
 
         [SerializeField] private PhysicProjectile _projectilePrefab;
 
+        private ITime _globalTime;
         private IObjectPool<PhysicProjectile> _projectilePool;
 
         private void Awake()
         {
+            _globalTime = new GlobalTime();
+
             var factory = new ProjectileFactory(new[] { _projectilePrefab });
-            _projectilePool = new PhysicProjectilePool(factory);
+            _projectilePool = new PhysicProjectilePool(_globalTime, factory, this);
 
             InitializeCannon(_leftCannon);
             InitializeCannon(_rightCannon);
