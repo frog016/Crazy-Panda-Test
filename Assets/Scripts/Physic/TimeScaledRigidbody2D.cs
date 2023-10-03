@@ -33,7 +33,7 @@ namespace Physic
             _rigidbody.velocity *= coefficient;
             _rigidbody.angularVelocity *= coefficient;
 
-            _rigidbody.gravityScale *= coefficient;
+            _rigidbody.gravityScale *= Mathf.Pow(currentScale, 2) / Mathf.Pow(oldScale, 2);
         }
     }
 }

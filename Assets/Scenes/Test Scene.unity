@@ -531,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftCannon: {fileID: 6849484771383989350}
   _rightCannon: {fileID: 279783756}
-  _cooldownTime: 3
+  _cooldownTime: 6
   _projectilePrefab: {fileID: 1459562727055077690, guid: 0016ca74948fc654ebd71ab72f85fbd6, type: 3}
 --- !u!1 &1334502793
 GameObject:

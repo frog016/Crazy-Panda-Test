@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LifeTime>k__BackingField: 10
-  _flySpeed: 20
+  _flySpeed: 12
   _angularVelocity: 100
 --- !u!114 &2187803404467119714
 MonoBehaviour:
